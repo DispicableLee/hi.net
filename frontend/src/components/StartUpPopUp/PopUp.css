@@ -1,0 +1,8 @@
+#popup-main{
+    border: 1px solid white;
+    height: 40%;
+    width: 40%;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+}
