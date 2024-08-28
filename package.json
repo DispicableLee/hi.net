@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/DispicableLee/hi.net/issues"
   },
-  "homepage": "https://github.com/DispicableLee/hi.net#readme"
+  "homepage": "https://github.com/DispicableLee/hi.net#readme",
+  "dependencies": {
+    "@mui/icons-material": "^6.0.0"
+  }
 }
