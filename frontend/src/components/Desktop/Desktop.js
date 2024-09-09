@@ -5,30 +5,27 @@ import IconButton from "../IconButton/IconButton";
 import Window from "../Window/Window";
 import "./Desktop.css"
 
-export default function Desktop(){
+export default function Desktop({windows}){
     const dispatch = useDispatch()
-    const windows = useSelector(store=>store?.session?.windows)
-    const openWindows = windows?.filter((window)=>window?.isOpen)
-    console.log("all windows", windows)
-    console.log("openWindows", openWindows)
-    
-    
-    
+    // const windows = useSelector(store=>store?.session?.windows)
     useEffect(()=>{
 
-    },[windows, openWindows])
+    }, [windows])
+    
+    
     
 
+    let renderedOpenWindows;
     
-    
-    
-    const renderedOpenWindows = openWindows.map((w, index) => (
-        <Window
-            key={index} // Ensure each component has a unique key
-            application={w.application}
-            isOpen={w.isOpen}
-        />
-    ));
+    if(windows.length>0){
+        renderedOpenWindows = windows.map((w, index) => (
+            <Window
+                key={index} // Ensure each component has a unique key
+                application={w.application}
+                index={index}
+            />
+        ));
+    }
 
 
 
@@ -37,14 +34,16 @@ export default function Desktop(){
         {
             id: 1,
             name: "Hi.Net",
-            application: "hi-net"
+            application: "Hi.Net"
         }
     ]
 
-    const renderedButtons = iconButtons?.map((icon)=>(
+    const renderedButtons = iconButtons?.map((icon, index)=>(
             <IconButton
+                key={index}
                 name={icon.name}
                 application={icon.application}
+                index={index}
             />
     ))
 
@@ -54,7 +53,7 @@ export default function Desktop(){
             <div id="icon-button-box">
                 {renderedButtons}
             </div>
-            {renderedOpenWindows}
+            {windows.length>0 && renderedOpenWindows}
         </div>
     )
 }

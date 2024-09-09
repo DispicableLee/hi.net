@@ -3,24 +3,41 @@ import react from "react"
 import { useState } from "react"
 import SettingsIcon from '@mui/icons-material/Settings';
 import { useDispatch, useSelector } from "react-redux"
+import TaskBarMenu from "./TaskBarMenu";
 
 export default function TaskBar({windows}){
-    const [menuOpen, setMenuOpen] = useState(true)
-    // console.log(windows)
+    const [menuOpen, setMenuOpen] = useState(false)
+    const [openMenuOptions, setOpenMenuOptions] = useState(false)
+    console.log(openMenuOptions)
+    function bringMenuToTaskBar(menu){
+        return menu
+    }
+    // =============== TaskBar Menu Options Master =======================
     const taskbarMenuOptions = [
         {
             application: "Settings",
             icon: "",
+            menu: [
+                {
+                    application: "Change CSS",
+                    icon: "",
+                }
+            ]
+        },
+        {
+            application: "Hi.Net",
+            icon: "",
+            menu:[],
+            options:[]
+        },
+        {
+            application: "about",
+            icon: "",
+            menu: [],
+            options:[]
         }
     ]
 
-    const taskbarMenuItems = taskbarMenuOptions.map((w)=>{
-        return (
-            <div id="taskbar-item-main">
-
-            </div>
-        )
-    })
 
 
 
@@ -29,8 +46,12 @@ export default function TaskBar({windows}){
         <div id="taskbar-main">
             <div className="taskbar-master">
                 {menuOpen &&
-                    <div className="taskbar-menu">
-                        {taskbarMenuItems}
+                    <div className="taskbar-menu-wrapper">
+                        <TaskBarMenu
+                            openMenuOptions={openMenuOptions}
+                            setOpenMenuOptions={setOpenMenuOptions}
+                            bringMenuToTaskBar={bringMenuToTaskBar}
+                        />
                     </div>
                 }
                 <button className="welcome-button"

@@ -8,10 +8,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 function App() {
   const windows = useSelector(store=>store?.session?.windows)
+  // console.log(windows)
+  // useEffect(()=>{
 
-  useEffect(()=>{
-
-  }, [windows])
+  // }, [windows])
   return (
     <div  id="app"
 
