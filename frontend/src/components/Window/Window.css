@@ -17,12 +17,16 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .window-title{
     width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .window-x{
@@ -31,4 +35,38 @@
     background-color: red;
     color: white;
     height: 100%;
+    width: 10%;
+}
+
+#window-content-main{
+    /* background-color: red; */
+    height: 100%;
+    width: 100%;
+}
+
+#hi-net-main{
+    /* background-color: red; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.searchbar{
+    width: 100%;
+    height: 5%;
+    border: 1px solid black;
+}
+
+.front-end-box{
+    border: 1px solid blue;
+    width: 100%;
+    height: 100%;
+    background-color: #e2e2e2;
+    display: inherit;
+}
+
+.hi-header{
+    
 }

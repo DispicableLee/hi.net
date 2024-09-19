@@ -30,21 +30,24 @@ const initialState = {
     }
 }
 
-const sessionReducer = (state=initialState, action)=>{
-    let newState = {...state}
-    switch(action.type){
-        case(OPEN_WINDOW):
-            let actionApp = action.application
-            let newWindow = {application: actionApp}
-            // let windowNumber = newState.windows.length+1
-            newState.windows.push({application: action.application})
-            return newState
-        case(CLOSE_WINDOW):
-            delete newState.windows[action.index]
-            return newState
+const sessionReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case OPEN_WINDOW:
+            return {
+                ...state, 
+                windows: [...state.windows, { application: action.application }]
+            };
+
+        case CLOSE_WINDOW:
+            // Remove the window at the specified index by filtering it out
+            return {
+                ...state,
+                windows: state.windows.filter((_, idx) => idx !== action.index)
+            };
+
         default:
-            return newState
+            return state;
     }
-}
+};
 
 export default sessionReducer

@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/DispicableLee/hi.net#readme",
   "dependencies": {
-    "@mui/icons-material": "^6.0.0"
+    "@mui/icons-material": "^6.0.0",
+    "react-colorful": "^5.6.1"
   }
 }
