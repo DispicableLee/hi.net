@@ -1,0 +1,79 @@
+#hi-net-main{
+    /* background-color: red; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.searchbar{
+    width: 100%;
+    height: 5%;
+    border: 1px solid black;
+}
+
+.front-end-box{
+    border: 1px solid blue;
+    width: 100%;
+    height: 100%;
+    background-color: #e2e2e2;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.hi-header{
+    border: 1px solid black;
+    height: 25%;
+}
+
+.hi-content{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.tabs{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: center;
+    height: 100%; 
+    width: 30%; 
+    gap: 10%;
+}
+
+.hi-net-option{
+    border: 1px solid black;
+    text-align: center;
+    width: 50%;
+}
+
+.hi-net-option:hover{
+    --b: 1px;   /* thickness of the border */
+    --c: red;   /* color of the border */
+    --w: 20px;  /* width of border */
+    border: var(--b) solid #0000; /* space for the border */
+    --_g: #0000 90deg,var(--c) 0;
+    --_p: var(--w) var(--w) border-box no-repeat;
+    background:
+        conic-gradient(from 90deg  at top    var(--b) left  var(--b),var(--_g)) 0    0    / var(--_p),
+        conic-gradient(from 180deg at top    var(--b) right var(--b),var(--_g)) 100% 0    / var(--_p),
+        conic-gradient(from 0deg   at bottom var(--b) left  var(--b),var(--_g)) 0    100% / var(--_p),
+        conic-gradient(from -90deg at bottom var(--b) right var(--b),var(--_g)) 100% 100% / var(--_p);
+}
+
+.about-tab{
+    border: 1px solid red;
+    width: 100%;
+}
+
+.links-tab{
+    border: 1px solid red;
+    width: 100%;
+}
+
+.link-a{
+    
+}

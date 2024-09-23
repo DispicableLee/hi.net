@@ -27,7 +27,28 @@ const initialState = {
     windows: [],
     desktopCss: {
         
-    }
+    },
+    hiNet: [
+        {
+            tab: "About",
+            content: "",
+            idx: 0
+        },
+        {
+            tab: "Links",
+            content: [
+                {
+                    name: "GitHub",
+                    url: ""
+                },
+                {
+                    name: "Instagram",
+                    url: ""
+                }
+            ],
+            idx: 1
+        }
+    ]
 }
 
 const sessionReducer = (state = initialState, action) => {
