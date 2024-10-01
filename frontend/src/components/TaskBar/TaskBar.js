@@ -1,11 +1,12 @@
 import "./TaskBar.css";
 import React, { useState } from "react";
 import SettingsIcon from '@mui/icons-material/Settings';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { openWindow } from "../../store/session";
 
 export default function TaskBar({ windows }) {
   const dispatch = useDispatch()
+  const desktopCss = useSelector(store=>store.session.desktopCss)
   const [menuOpen, setMenuOpen] = useState(false);
   const [hoveredTask, setHoveredTask] = useState(null);  // State to track the hovered task item
   const [isSubMenuHovered, setIsSubMenuHovered] = useState(false);  // State to track if the submenu is hovered
@@ -80,7 +81,7 @@ export default function TaskBar({ windows }) {
   });
 
   return (
-    <div id="taskbar-main">
+    <div id="taskbar-main" style={desktopCss.taskbar}>
       <div className="taskbar-master">
         {menuOpen && (
           <div className="taskbar-menu-wrapper">

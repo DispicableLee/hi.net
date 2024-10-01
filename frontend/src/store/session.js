@@ -20,13 +20,34 @@ export function closeWindow(application, index){
 const GET_ALL_WINDOWS = "session/GET_ALL_WINDOWS"
 // export function getAllWindows
 
+const CHANGE_DESKTOP_BACKGROUND = "session/CHANGE_DESKTOP_BACKGROUND"
+
+export function changeDesktopBackground(value){
+    return {
+        type: CHANGE_DESKTOP_BACKGROUND,
+        value
+    }
+}
+
+const CHANGE_TASKBAR_BACKGROUND = "session/CHANGE_TASKBAR_BACKGROUND"
+export function changeTaskbarBackground(value){
+    return {
+        type: CHANGE_TASKBAR_BACKGROUND,
+        value
+    }
+}
 
 
 
 const initialState = {
     windows: [],
     desktopCss: {
-        
+        main: {
+            background: "#008080"
+        },
+        taskbar: {
+            background: "#D897D2"
+        }
     },
     hiNet: [
         {
@@ -65,7 +86,17 @@ const sessionReducer = (state = initialState, action) => {
                 ...state,
                 windows: state.windows.filter((_, idx) => idx !== action.index)
             };
-
+        case CHANGE_DESKTOP_BACKGROUND:
+            console.log("changing desktop css")
+            return {
+                ...state,
+                desktopCss: {...state.desktopCss, main: {background: action.value}}
+            }
+        case CHANGE_TASKBAR_BACKGROUND:
+        return {
+            ...state,
+            desktopCss: {...state.desktopCss, taskbar: {background: action.value}}
+        }
         default:
             return state;
     }

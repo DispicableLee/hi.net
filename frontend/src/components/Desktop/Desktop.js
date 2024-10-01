@@ -10,6 +10,7 @@ import "../Window/Window.css"
 export default function Desktop(){
     const dispatch = useDispatch()
     const windows = useSelector(store=>store.session.windows)
+    const desktopCss = useSelector(store=>store?.session.desktopCss)
     console.log(windows)
     useEffect(()=>{
 
@@ -47,7 +48,7 @@ export default function Desktop(){
 
 
     return (
-        <div id="desktop-main">
+        <div id="desktop-main" style={desktopCss.main}>
             <div id="icon-button-box">
                 {renderedButtons}
             </div>
