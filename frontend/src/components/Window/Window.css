@@ -1,7 +1,7 @@
 #window-main{
     border: 1px solid white;
     background-color: white;
-    /* position: absolute; */
+    position: absolute;
     right: 100;
     height: 500px;
     width: 600px;
@@ -27,6 +27,15 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+}
+
+.window_{
+    text-align: center;
+    padding: auto;
+    /* background-color: red; */
+    border: 1px solid black;
+    height: 100%;
+    width: 10%;
 }
 
 .window-x{

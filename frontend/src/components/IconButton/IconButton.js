@@ -1,6 +1,6 @@
 import React from "react";
 import {useDispatch, useSelector} from 'react-redux'
-import { openWindow } from "../../store/session";
+import { startApplication } from "../../store/session";
 import "./IconButton.css"
 
 export default function IconButton({name, application, index}){
@@ -8,7 +8,7 @@ export default function IconButton({name, application, index}){
 
     return (
         <div id="iconbutton-main"
-            onDoubleClick={()=>dispatch(openWindow(application, index))}
+            onDoubleClick={()=>dispatch(startApplication(application, index))}
         >
             <h2>{name}</h2>
             {/* <img src={icon}/> */}

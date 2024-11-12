@@ -8,6 +8,7 @@ export default function HiNet({application}){
     let currentOpenTab = hiNetOptions.find((o)=>o?.idx===openTab)
     // console.log(currentOpenTab)
     let renderedOpenTab;
+    let renderedLinks
     // console.log(hiNetOptions.filter((o)=>o.idx===openTab))
 
     const renderedOptions = hiNetOptions?.map((tab, index)=>{
@@ -31,17 +32,20 @@ export default function HiNet({application}){
     }else if(currentOpenTab?.idx===1){
         // Links
         console.log(currentOpenTab.content)
-        let renderedLinks = currentOpenTab?.content?.map((c)=>{
-            <a href={c.url}
-                className="link-a"
-            >
-                <h3>{c.name}</h3>
-            </a>
+        renderedLinks = currentOpenTab.content?.map((c)=>{
+            return (
+                <div className="link-item">
+                    <h3>{c.name}</h3>
+                </div>
+            )
+
         })
         renderedOpenTab = 
             <div className="links-tab">
                 <h1>{currentOpenTab.tab}</h1>
-                {renderedLinks}
+                <div className="link-list">
+                    {renderedLinks}     
+                </div>
             </div>
     }
 

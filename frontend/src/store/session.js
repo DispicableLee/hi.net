@@ -1,5 +1,24 @@
+const START_APPLICATION = "session/START_APPLICATION"
+export function startApplication(application,index){
+    return {
+        type: START_APPLICATION,
+        application,
+        index
+    }
+}
+
+const EXIT_APPLICATION = "session/EXIT_APPLICATION"
+
+export function exitApplication(application, index){
+    return {
+        type: EXIT_APPLICATION,
+        application,
+        index
+    }
+}
+
 const OPEN_WINDOW = "session/OPEN_WINDOW"
-export function openWindow(application,index){
+export function openWindow(application, index){
     return {
         type: OPEN_WINDOW,
         application,
@@ -8,7 +27,6 @@ export function openWindow(application,index){
 }
 
 const CLOSE_WINDOW = "session/CLOSE_WINDOW"
-
 export function closeWindow(application, index){
     return {
         type: CLOSE_WINDOW,
@@ -74,18 +92,33 @@ const initialState = {
 
 const sessionReducer = (state = initialState, action) => {
     switch (action.type) {
-        case OPEN_WINDOW:
+        case START_APPLICATION:
             return {
                 ...state, 
-                windows: [...state.windows, { application: action.application }]
+                windows: [...state.windows, { application: action.application, isOpen: true }]
             };
 
-        case CLOSE_WINDOW:
+        case EXIT_APPLICATION:
             // Remove the window at the specified index by filtering it out
             return {
                 ...state,
                 windows: state.windows.filter((_, idx) => idx !== action.index)
             };
+
+        case OPEN_WINDOW:
+            return {
+                ...state,
+                windows: state.windows.map((w, idx)=> 
+                    idx === action.index ? {...w, isOpen: true} : w
+                )
+            }
+        case CLOSE_WINDOW:
+            return {
+                ...state,
+                windows: state.windows.map((w, idx)=>
+                    idx === action.index ? {...w, isOpen: false} : w
+                )
+            }
         case CHANGE_DESKTOP_BACKGROUND:
             console.log("changing desktop css")
             return {

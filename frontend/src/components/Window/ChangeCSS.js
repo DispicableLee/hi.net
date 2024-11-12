@@ -9,8 +9,8 @@ import { changeTaskbarBackground } from "../../store/session";
 
 export default function ChangeCss(){
     const dispatch = useDispatch()
-    const [primaryColor, setPrimaryColor] = useState("")
-    const [secondaryColor, setSecondaryColor] = useState("")
+    const [primaryColor, setPrimaryColor] = useState("#008080")
+    const [secondaryColor, setSecondaryColor] = useState("#e2e2e2")
     return (
         <div id="window-content-main">
             <div className="css-style-form">

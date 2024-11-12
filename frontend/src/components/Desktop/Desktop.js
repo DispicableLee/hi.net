@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { closeWindow } from "../../store/session";
+import { exitApplication } from "../../store/session";
 import IconButton from "../IconButton/IconButton";
 import Window from "../Window/Window";
 import "./Desktop.css"
@@ -10,19 +10,23 @@ import "../Window/Window.css"
 export default function Desktop(){
     const dispatch = useDispatch()
     const windows = useSelector(store=>store.session.windows)
+    const openWindows = windows.filter((w)=> w.isOpen)
     const desktopCss = useSelector(store=>store?.session.desktopCss)
     console.log(windows)
     useEffect(()=>{
 
-    }, [windows])
+    }, [windows, openWindows])
     
     
 
     
-    const renderedOpenWindows = windows.map((w, index) => (
+    const renderedOpenWindows = openWindows.map((w, index) => (
         <Window
             application={w.application}
             index={index}
+            style={{
+                right: `${50 + index}px`
+            }}
         />
     ));
 
@@ -34,6 +38,11 @@ export default function Desktop(){
             id: 1,
             name: "Hi.Net",
             application: "Hi.Net"
+        },
+        {
+            id: 2,
+            name: "Projects",
+            application: "Projects"
         }
     ]
 
