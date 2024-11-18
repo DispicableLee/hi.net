@@ -2,6 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { exitApplication } from "../../store/session";
+import projectIcon from "../styles/icons/project-icon.png"
+import mona from "../styles/icons/mona.png"
+import hiNet from "../styles/icons/hi.png"
 import IconButton from "../IconButton/IconButton";
 import Window from "../Window/Window";
 import "./Desktop.css"
@@ -37,12 +40,20 @@ export default function Desktop(){
         {
             id: 1,
             name: "Hi.Net",
-            application: "Hi.Net"
+            application: "Hi.Net",
+            icon: hiNet
         },
         {
             id: 2,
             name: "Projects",
-            application: "Projects"
+            application: "Projects",
+            icon: projectIcon
+        },
+        {
+            id: 3,
+            name: "Art",
+            application: "Art",
+            icon: mona
         }
     ]
 
@@ -52,6 +63,7 @@ export default function Desktop(){
                 name={icon.name}
                 application={icon.application}
                 index={index}
+                icon={icon.icon}
             />
     ))
 

@@ -6,6 +6,7 @@ import { useState } from "react"
 import ChangeCss from "./ChangeCSS";
 import HiNet from "./HiNet";
 import Projects from "../Projects/ProjectsFolder";
+import ArtGallery from "../ArtGallery/ArtGallery";
 import Draggable from "react-draggable";
 
 
@@ -33,7 +34,7 @@ export default function Window({application, index}){
             >
                 <div className="window-title-x">
                     <div className="window-title">
-                        <p>{application}</p>
+                        <h1>{application}</h1>
                     </div>
                     <div className="window_"
                         onClick={()=>dispatch(closeWindow(application, index))}
@@ -54,6 +55,9 @@ export default function Window({application, index}){
                 }
                 {application === "Projects" &&
                     <Projects/>
+                }
+                {application === "Art" &&
+                    <ArtGallery application={application}/>
                 }
             </div>
 

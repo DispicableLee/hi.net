@@ -116,7 +116,7 @@ const sessionReducer = (state = initialState, action) => {
             return {
                 ...state,
                 windows: state.windows.map((w, idx)=>
-                    idx === action.index ? {...w, isOpen: false} : w
+                    action.application === w.application? {...w, isOpen: false} : w
                 )
             }
         case CHANGE_DESKTOP_BACKGROUND:
